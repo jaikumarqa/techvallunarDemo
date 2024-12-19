@@ -1,0 +1,21 @@
+{
+  "name": "techvallunardemo",
+  "version": "1.0.0",
+  "description": "playwright test",
+  "main": "index.js",
+  "scripts": {
+    "report": "npx playwright test --reporter=html && npx playwright show-report",
+    "tests": "npx playwright test"
+  },
+  "keywords": [],
+  "author": "Jai",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.2"
+  },
+  "dependencies": {
+    "demo": "file:",
+    "techvallunardemo": "file:"
+  }
+}

@@ -5,14 +5,19 @@
   "main": "index.js",
   "scripts": {
     "report": "npx playwright test --reporter=html && npx playwright show-report",
-    "tests": "npx playwright test"
+    "tests_chrome": "npx playwright test --project=Chromium",
+    "tests_firefox": "npx playwright test --project=Firefox",
+    "allure-report": "allure generate allure-results --clean && allure open"
   },
   "keywords": [],
   "author": "Jai",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.49.1",
-    "@types/node": "^22.10.2"
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.10.2",
+    "allure-playwright": "^3.0.7",
+    "playwright": "^1.49.1"
   },
   "dependencies": {
     "demo": "file:",

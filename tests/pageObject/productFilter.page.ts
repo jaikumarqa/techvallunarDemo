@@ -2,15 +2,15 @@ import { type Page } from '@playwright/test';
 
 export default class productFilterPage {
 
-    public filterTypeDrp = async (page: Page, filterType: string) => page.getByTestId(filterType);
+    public facetMenuDrp = async (page: Page, facetMenu: string) => page.getByTestId(facetMenu);
 
-    public filterOptionCheckbox = async (page: Page, filterName: string) => page.getByRole('checkbox', { name: filterName, exact: true });
+    public facetOptChkbx = async (page: Page, facetOptn: string) => page.getByRole('checkbox', { name: facetOptn, exact: true });
 
-    public selectedFilter = async (page: Page) => page.locator('.selected-facets > button.selected-facets__value');
+    public selectedFacets = async (page: Page) => page.locator('.selected-facets > button.selected-facets__value');
 
     public productHeader = async (page: Page) => page.locator('.product-overview__headline-wrapper');
 
     public productList = async (page: Page) => page.locator('.product-tile__main-link');
 
-    public clearProducts = async (page: Page) => page.locator('.selected-facets__reset');
+    public resetFacets = async (page: Page) => page.locator('.selected-facets__reset');
 } 

@@ -1,12 +1,12 @@
 {
-    "FilterList1": 
+    "FilterList_1": 
     {
         "flags": "Sale",
         "brand": "4711",
         "classificationClassName": "Eau de Cologne",
         "gender": "Unisex"
     },
-    "FilterList2": 
+    "FilterList_2": 
     {
         "flags": "NEU",
         "brand": "4711",

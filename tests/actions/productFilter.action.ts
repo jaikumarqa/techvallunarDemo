@@ -1,8 +1,9 @@
 import { type Page } from '@playwright/test';
 import ProductFilterPage from '../pageObject/productFilter.page';
+import IProductFilter from '../interface/IProductFilter';
 
 
-export default class productFilterAction extends ProductFilterPage  {
+export default class productFilterAction extends ProductFilterPage implements IProductFilter  {
     
     public async filterTheProducts(page: Page, filterType: string, filterName: string) {
         await (await this.filterTypeDrp(page, filterType)).click();
@@ -21,4 +22,11 @@ export default class productFilterAction extends ProductFilterPage  {
     public async WaitAsync(ms: number) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
+
+    public async clearTheProducts(page: Page) {
+        await (await this.clearProducts(page)).click();
+        await page.waitForLoadState('domcontentloaded');
+        await this.WaitAsync(3000);
+    }
+
 }

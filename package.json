@@ -17,7 +17,8 @@
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.10.2",
     "allure-playwright": "^3.0.7",
-    "playwright": "^1.49.1"
+    "playwright": "^1.49.1",
+    "typescript": "^5.7.2"
   },
   "dependencies": {
     "demo": "file:",

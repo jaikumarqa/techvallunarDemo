@@ -11,4 +11,6 @@ export default class productFilterPage {
     public productHeader = async (page: Page) => page.locator('.product-overview__headline-wrapper');
 
     public productList = async (page: Page) => page.locator('.product-tile__main-link');
+
+    public clearProducts = async (page: Page) => page.locator('.selected-facets__reset');
 } 

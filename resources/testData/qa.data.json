@@ -12,5 +12,11 @@
         "brand": "4711",
         "classificationClassName": "Eau de Cologne",
         "gender": "Weiblich"
+    },
+    "FilterList_3": 
+    {
+        "flags": "Limitiert",
+        "classificationClassName": "Parfum",
+        "gender": "Männlich"
     }
 }

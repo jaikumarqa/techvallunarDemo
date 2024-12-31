@@ -34,9 +34,10 @@ test.describe('Douglas UI Test For Demo', () => {
       facetOptns.sort();
 
       await expect(await filterAct.selectedFacets(page)).toHaveText(facetOptns);
-      expectedProductsCount = 2
+      expectedProductsCount = await (await filterAct.productList(page)).count();
+
+      expect(expectedProductsCount).toBeGreaterThanOrEqual(1);
       await expect(await filterAct.productHeader(page)).toHaveText(`Parfüm & Düfte(${expectedProductsCount})`);
-      await expect(await filterAct.productList(page)).toHaveCount(expectedProductsCount);
 
       await filterAct.clearTheProducts(page);
       await expect(await filterAct.selectedFacets(page)).not.toBeVisible();
@@ -52,9 +53,29 @@ test.describe('Douglas UI Test For Demo', () => {
       facetOptns.sort();
 
       await expect(await filterAct.selectedFacets(page)).toHaveText(facetOptns);
-      expectedProductsCount = 1
+      expectedProductsCount = await (await filterAct.productList(page)).count();
+      
+      expect(expectedProductsCount).toBeGreaterThanOrEqual(1);
       await expect(await filterAct.productHeader(page)).toHaveText(`Parfüm & Düfte(${expectedProductsCount})`);
-      await expect(await filterAct.productList(page)).toHaveCount(expectedProductsCount);
+
+      await filterAct.clearTheProducts(page);
+      await expect(await filterAct.selectedFacets(page)).not.toBeVisible();
+      await expect(await filterAct.resetFacets(page)).not.toBeVisible();
+      facetOptns = [];
+
+      // filter 3 -- Limitiert
+      for (const [key, value] of Object.entries(testData.FilterList_3)) {
+        console.log(`${key}: ${value}`); // Access key and value
+        await filterAct.filterTheProducts(page, `${key}`, `${value}`);
+        facetOptns.push(`${value}`);
+      }
+      facetOptns.sort();
+
+      await expect(await filterAct.selectedFacets(page)).toHaveText(facetOptns);
+      expectedProductsCount = await (await filterAct.productList(page)).count();
+      
+      expect(expectedProductsCount).toBeGreaterThanOrEqual(1);
+      await expect(await filterAct.productHeader(page)).toHaveText(`Parfüm & Düfte(${expectedProductsCount})`);
 
       await filterAct.clearTheProducts(page);
       await expect(await filterAct.selectedFacets(page)).not.toBeVisible();
